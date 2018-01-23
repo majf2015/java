@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+    <bean id="calculatorInterfaceImp" class="com.sdcm.CalculatorInterfaceImp"/>
+    -->
+    <!--java的config文件导入XML配置-->
+    <bean class="config.ScanConfig"/>
+
+  <!--通过构造器或者setter声明DI-->
+    <bean id="subtractInterfaceImp" class="com.sdcm.SubtractInterfaceImp">
+        <property name="sub" ref="calculatorInterfaceImp" />
+    </bean>
+
+
+
+    <!--
+       <bean id="subtractInterfaceImp" class="com.sdcm.SubtractInterfaceImp"
+
+           c:sub-ref="calculatorInterfaceImp" />
+     -->
+           <!--c:_0-ref="calculatorInterfaceImp"-->
+    <!--通过构造器设值-->
+    <bean id="addInterfaceImp" class="com.sdcm.AddInterfaceImp">
+        <constructor-arg value="3" />
+        <constructor-arg value="5"/>
+        <constructor-arg>
+            <set>
+                <value>8</value>
+                <value>9</value>
+                <value>10</value>
+                <value>10</value>
+            </set>
+        </constructor-arg>
+    </bean>
+    <!--通过setter方法设置属性值-->
+    <bean id="anotherAddInterfaceImp" class="com.sdcm.AnotherAddInterfaceImp">
+        <property name="left" value="3"/>
+        <property name="right" value="5"/>
+        <property name="list">
+            <set>
+                <value>8</value>
+                <value>9</value>
+                <value>10</value>
+                <value>10</value>
+            </set>
+        </property>
+    </bean>
+
+
+</beans>
