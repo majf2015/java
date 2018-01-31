@@ -21,9 +21,16 @@ public class SpELTester {
 
     @Autowired
     private SpEL spEL;
+//    @Autowired
+//    private Aop aopImp;
 
     @Test
     public void testSpEL() {
         spEL.show();
     }
+
+//    @Test
+//    public void testAopImp(){
+//        aopImp.aopShow();
+//    }
 }
